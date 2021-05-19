@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ImageParser</title>
+    <link rel="stylesheet" type="text/css" href="ParserStyles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+<div class="big-block">
+    <div class="labels">Filename: <span id="fileName"></span></div>
+    <div class="labels">Size, px: <span id="size"></span></div>
+    <div class="labels">Resolution, dpi: <span id="resolution"></span></div>
+    <div class="labels">Colour depth: <span id="colorDepth"></span></div>
+    <div class="labels">Compression: <span id="compression"></span></div>
+    <hr class="line">
+    <div class="labels">File type: <span id="type"></span></div>
+    <div class="labels">File size: <span id="fileSize"></span></div>
+
+    <label for="myFile" class="choice-button">Choose file</label>
+    <input type="file" class="myInp" id="myFile" name="myFile" accept=".jpg, .jpeg, .png , .tif , .bmp, .gif, .pcx"
+           multiple="multiple"/>
+</div>
+</body>
+<script src="ParserScript.js"></script>
+</html>

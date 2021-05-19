@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ColorScheme3</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+<div id="BigRectangle" class="BigRectangle-background">
+    <svg height="210" width="210">
+        <defs>
+            <linearGradient id="color-gradient-black" x1="0%" x2="0%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="rgb(0,0,0)" stop-opacity="0"></stop>
+                <stop offset="100%" stop-color="rgb(0,0,0)" stop-opacity="1"></stop>
+            </linearGradient>
+            <linearGradient id="color-gradient-white" x1="0%" x2="100%" y1="0%" y2="0%">
+                <stop offset="0%" stop-color="rgb(255,255,255)" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="rgb(255,255,255)" stop-opacity="0"></stop>
+            </linearGradient>
+        </defs>
+        <rect id="color-picker-tone" x="0" y="0" width="100%" height="100%" fill="rgb(255,0,0)"></rect>
+        <rect x="0" y="0" width="100%" height="100%" fill="url(#color-gradient-white)"></rect>
+        <rect shape-rendering="crispEdges" x="0" y="0" width="100%" height="100%"
+              fill="url(#color-gradient-black)"></rect>
+    </svg>
+</div>
+</div id="Cursor-Rectangle" >
+<svg height="210" width="210" class="Cursor-Rectangle">
+    <circle id="colorPickerCursor" class="cursor" cx="205" cy="5" r="6" stroke="black" stroke-width="2.3" fill="none"
+            transform="translate(0,0)" style="opacity: 1; transition: all 0.1s linear 0s; "/>
+</svg>
+</div>
+<div id="Rectangle" class="Rectangle">
+    <input type="range" id="volume" name="volume"
+           oninput="Volume()" min="0" max="356" step="1" value="0">
+
+</div>
+<div id="RGB_CMYK_HLS" class="RGB_CMYK_HLS">
+    <ul class="RGB" id="RGB">
+        <li>R
+            <input type="number" name="li_R" id="li_R" class="li_R"
+                   min="0" max="255" value="255" oninput="RGBtoCMYK();RGBToHSL()">
+        </li>
+        <li>G
+            <input type="number" name="li_G" id="li_G" class="li_G" min="0" max="255" value="0"
+                   oninput="RGBtoCMYK();RGBToHSL()">
+        </li>
+        <li>B
+            <input type="number" name="li_B" id="li_B" class="li_B" min="0" max="255" value="0"
+                   oninput="RGBtoCMYK();RGBToHSL()">
+        </li>
+    </ul>
+    <ul class="CMYK" id="CMYK">
+        <li>C
+            <input type="number" name="li_C" id="li_C" class="li_C" min="0" max="100" value="0"
+                   oninput="CMYKtoRGB();CMYKtoHLS()"> %
+        </li>
+        <li>M
+            <input type="number" name="li_M" id="li_M" class="li_M" min="0" max="100"
+                   value="100" oninput="CMYKtoRGB();CMYKtoHLS()"> %
+        </li>
+        <li>Y
+            <input type="number" name="li_Y" id="li_Y" class="li_Y" min="0" max="100" value="100"
+                   oninput="CMYKtoRGB();CMYKtoHLS()"> %
+        </li>
+        <li>K
+            <input type="number" name="li_K" id="li_K" class="li_K" min="0" max="100" value="0"
+                   oninput="CMYKtoRGB();CMYKtoHLS()"> %
+        </li>
+    </ul>
+
+    <ul class="HLS" id="HLS">
+        <li>H
+            <input type="number" name="li_H" id="li_H" class="li_H"
+                   min="0" max="356" value="0" oninput=" HLStoRGB();HLStoCMYK()">
+        </li>
+        <li>L
+            <input type="number" name="li_L" id="li_L" class="li_L" min="0" max="100" value="50"
+                   oninput=" HLStoRGB();HLStoCMYK()"> %
+        </li>
+        <li>S
+            <input type="number" name="li_S" id="li_S" class="li_S" min="0" max="100" value="100"
+                   oninput=" HLStoRGB();HLStoCMYK()"> %
+        </li>
+    </ul>
+    <div id="HEXtoRectangle" class="HEXtoRectangle">
+        HEX #
+        <input name="input_Hex" id="input_Hex" class="input_Hex"
+               value="ff0000" minlenght="6" maxlength="6" onchange="HEX()">
+    </div>
+</div>
+<div id="ResultRectangle" class="ResultRectangle"></div>
+</body>
+<script src="script.js"></script>
+</html>
